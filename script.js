@@ -1,35 +1,36 @@
 const data = {
   type1: {
     host: [
-      'www.tribunnews.com',
-      'www.kompas.com',
+      'tribunnews.com',
+      'kompas.com',
       'suara.com',
-      'www.merdeka.com',
+      'merdeka.com',
       'grid.id',
       'pikiran-rakyat.com',
-      'zonajakarta.pikiran-rakyat.com',
-      'lingkarmadiun.pikiran-rakyat.com',
-      'seputarlampung.pikiran-rakyat.com',
-      'portalsulut.pikiran-rakyat.com',
     ],
     suffix: '?page=all',
   },
   type2: {
-    host: ['detik.com', 'finance.detik.com', 'news.detik.com', 'hot.detik.com'],
+    host: ['detik.com'],
     suffix: '?single=1',
   },
 };
 
 let href = window.location.href;
-let host = window.location.host;
 
-if (data.type1.host.includes(host) && !href.includes(data.type1.suffix)) {
-  console.log('blacklist 1, belom difix');
+function isIncludesTo(type) {
+  const checkType = type.host.map((item) => {
+    return href.includes(item);
+  });
+  return checkType.includes(true);
+}
+
+function notContain(suffix) {
+  return !href.includes(suffix);
+}
+
+if (isIncludesTo(data.type1) && notContain(data.type1.suffix)) {
   window.location.replace(href + data.type1.suffix);
-} else if (
-  data.type2.host.includes(host) &&
-  !href.includes(data.type2.suffix)
-) {
-  console.log('blacklist 2, belom difix');
+} else if (isIncludesTo(data.type2) && notContain(data.type2.suffix)) {
   window.location.replace(href + data.type2.suffix);
 }
