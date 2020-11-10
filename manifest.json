@@ -5,9 +5,9 @@
   "author": "Dimas Mifthul Huda",
   "description": "Menghilangkan paginasi pada artikel berita.",
   "icons": { 
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png" 
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png" 
   },
   "content_scripts": [
   {
