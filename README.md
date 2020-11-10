@@ -14,7 +14,7 @@ Chrome extension untuk menghilangkan paginasi pada artikel berita.
 2. Buka **chrome://extensions/**
 3. Aktifkan **Developer mode** yang terletak pada bagian kanan atas
 4. Tekan tombol **Load unpacked**
-5. Arahkan pada folder lalu ekstrak tadi
+5. Arahkan pada folder hasil ekstrak sebelumnya
 6. Enjoy!
 
 
