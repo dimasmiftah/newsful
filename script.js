@@ -17,21 +17,20 @@ const data = {
   },
 };
 
-let href = window.location.href;
+const href = window.location.href;
+const urlParams = new URLSearchParams(window.location.search);
 
-function isIncludesTo(type) {
+const isIncludesTo = (type) => {
   const checkType = type.host.map((item) => {
     return href.includes(item);
   });
   return checkType.includes(true);
-}
+};
 
-function notContain(suffix) {
-  return !href.includes(suffix);
-}
-
-if (isIncludesTo(data.type1) && notContain(data.type1.suffix)) {
-  window.location.replace(href + data.type1.suffix);
-} else if (isIncludesTo(data.type2) && notContain(data.type2.suffix)) {
-  window.location.replace(href + data.type2.suffix);
+if (isIncludesTo(data.type1) && urlParams.get('page') !== 'all') {
+  urlParams.set('page', 'all');
+  window.location.search = urlParams;
+} else if (isIncludesTo(data.type2) && urlParams.get('single') !== '1') {
+  urlParams.set('single', '1');
+  window.location.search = urlParams;
 }
