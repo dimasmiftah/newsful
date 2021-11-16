@@ -7,6 +7,7 @@ const data = {
       'merdeka.com',
       'grid.id',
       'pikiran-rakyat.com',
+      'viva.co.id',
     ],
     suffix: '?page=all',
   },
