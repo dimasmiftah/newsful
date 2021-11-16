@@ -1,31 +1,21 @@
 const data = {
-  type1: {
-    host: [
-      'tribunnews.com',
-      'kompas.com',
-      'suara.com',
-      'merdeka.com',
-      'grid.id',
-      'pikiran-rakyat.com',
-      'viva.co.id',
-    ],
-    suffix: '?page=all',
-  },
-  type2: {
-    host: ['detik.com'],
-    suffix: '?single=1',
-  },
+  type1: [
+    'tribunnews.com',
+    'kompas.com',
+    'suara.com',
+    'merdeka.com',
+    'grid.id',
+    'pikiran-rakyat.com',
+    'viva.co.id',
+  ],
+  type2: ['detik.com'],
 };
 
 const href = window.location.href;
 const urlParams = new URLSearchParams(window.location.search);
 
-const isIncludesTo = (type) => {
-  const checkType = type.host.map((item) => {
-    return href.includes(item);
-  });
-  return checkType.includes(true);
-};
+const isIncludesTo = (type) =>
+  type.map((item) => href.includes(item)).includes(true);
 
 if (isIncludesTo(data.type1) && urlParams.get('page') !== 'all') {
   urlParams.set('page', 'all');
