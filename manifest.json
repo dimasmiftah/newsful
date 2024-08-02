@@ -1,18 +1,26 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Newsful",
-  "version": "0.1.0",
+  "version": "1",
   "author": "Dimas Mifthul Huda",
   "description": "Menghilangkan paginasi pada artikel berita.",
-  "icons": { 
+  "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
-    "128": "icons/icon128.png" 
+    "128": "icons/icon128.png"
   },
   "content_scripts": [
-  {
-    "matches": ["<all_urls>"],
-    "js": ["script.js"]
-  }
+    {
+      "matches": [
+        "*://*.tribunnews.com/*",
+        "*://*.kompas.com/*",
+        "*://*.suara.com/*",
+        "*://*.merdeka.com/*",
+        "*://*.grid.id/*",
+        "*://*.pikiran-rakyat.com/*",
+        "*://*.viva.co.id/*"
+      ],
+      "js": ["script.js"]
+    }
   ]
 }
